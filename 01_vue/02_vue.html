@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>初始vue</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>hello, {{name}}</h1>
+
+        <hr color="red" />
+        <h1>hello, {{school.name}}:{{school.address}}</h1>
+        <a v-bind:href="url">www.baidu.com</a>
+       
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        Vue.config.devtools = true
+        
+        //创建vue实例 {配置对象}
+        new Vue({
+            el: '#root', //el 代表容器用于指定当前vue实例为按个容器服务 值通常是css选择器
+            data: {
+                name: 'tom',
+                url: 'http://www.baidu.com',
+                school:{
+                    name:'长安大学',
+                    address:'xian'
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>
