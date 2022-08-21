@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>初始vue</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+    姓名：{{name}} <br>
+    地址：{{address}}<br>
+    <!-- v-on: === @  都可以绑定事件-->
+    <button v-on:click="showInfo">点击抽奖</button><br>
+    <button @click="showInfo">点击抽奖</button><br>
+
+    <button @click="showInfo2($event,222222)">点击抽奖</button>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        Vue.config.devtools = true
+
+    
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                name:'doveyuin',
+                address:'shenzhen'
+            },
+            methods:{
+                showInfo(){
+                    alert("中奖了")
+                },
+                showInfo2(event,number){
+                    console.log(event)
+                    alert("中奖了"+number)
+                }
+                // showInfo:(event)=> {
+                //     alert("中奖了")
+                //     console.log(this)
+                // }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

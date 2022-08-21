@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>数据绑定</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- v-bind v-model 输入类 values属性的 -->
+    <div id="root">
+        <h1>NAME: {{school.name}}</h1>
+        <h1>ADDRESS: {{school.address}}</h1>
+        <h1>data: {{2+2}}</h1>
+        <h1>{{$options}}</h1>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        Vue.config.devtools = true
+        const vm = new Vue({
+            el: '#root'
+            ,
+            data: function () {
+
+                return {
+                  school: {
+                    name: 'dove',
+                    address: 'sz'
+                   } 
+                }
+            }
+        })
+console.log(vm)
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>数据绑定</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- v-bind v-model 输入类 values属性的 -->
+    <div id="root">
+        单向绑定：<input type="text" v-bind:value="name"><br>
+        单向绑定1<input type="text" :value="name"><br>
+        双向绑定：<input type="text" v-model:value="name"><br>
+        双向绑定1<input type="text" v-model="name"><br>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        Vue.config.devtools = true
+
+        //    const v = new Vue({
+        //     // el:'#root',
+        //     data:{
+        //         name:'doveyin'
+        //     }
+        //    })
+        //     console.log(v)
+        //     v.$mount('#root');//mount 挂载
+
+
+        const v1 = new Vue({
+            el: '#root',
+            // data: function () {
+            //     return {
+            //         name: 'doveyin'
+            //     }
+            // }
+            data(){
+              return{
+                name: 'doveyin'
+              }
+            }
+        })
+        console.log(v1)
+       
+    </script>
+
+
+
+
+</body>
+
+</html>
