@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>08vue</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="root">
+
+        <h1 v-show="1===1">欢迎光临{{name}}</h1>
+
+        <h1 v-show="a">欢迎光临{{name}}</h1>
+
+        <h1 v-if="a">欢迎光临{{name}}</h1>
+
+        <ul>
+            <li v-for="(number,index) in 10" :key="index">
+                {{index}}----{{number}}
+            </li>
+        </ul><br><br>
+
+        <ul>
+            <li v-for="p in persons" :key="p.id">
+                {{p.name}}----{{p.age}}----{{p.id}}
+            </li>
+        </ul><br>
+        <ul>
+            <li v-for="(value,k) in car" :key="k">
+                {{k}}----{{value}}
+            </li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        Vue.config.devtools = true
+
+        new Vue({
+            el: '#root',
+            data: {
+                name: "dove",
+                a: false,
+                persons: [{
+                    id:001,
+                    name: 'zs',
+                    age: 20
+                }, {
+                    id:002,
+                    name: 'ls',
+                    age: 15
+                }, {
+                    id:003,
+                    name: 'ww',
+                    age: 29
+                }],
+                car:{
+                    name:'奥迪A6',
+                    price:2000000,
+                    color:"黑色"
+                }
+            },
+        })
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>vue-stu</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div class="demo">
+            <h1>今天天气 {{isHot?"炎热":"凉爽"}}</h1>
+        </div>
+        <button @click="isHot = !isHot">change</button><br>
+        
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        Vue.config.devtools = true
+     
+        const vm = new Vue({
+            el: '#root', 
+            data: {
+                isHot:false
+            },
+            // watch:{
+            //     isHot(){
+            //         console.log('天气改变了');
+            //     }
+            // }
+        })
+        vm.$watch('isHot',function(newvalue,oldvaue){
+            console.log('天气改变了',newvalue,oldvaue,this);
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>08vue</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        .basic {
+            width: 100px;
+            height: 100px;
+            border-style: solid;
+            border-color: blue;
+            margin: 10px;
+        }
+
+        .cs1 {
+            background-color: red;
+        }
+
+        .cs2 {
+            background-color: yellow;
+        }
+
+        .cs3 {
+            background-color: green;
+        }
+
+        .cs4 {
+            border-radius: 10px;
+        }
+
+        .cs5 {
+            border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+
+        <div class="basic" :class="cs" @click="change"><br>
+            <span>样式切换</span>
+        </div>
+
+        <div class="basic" :class="classObj">
+            <span>样式切换</span>
+        </div>
+
+        <div class="basic" :style="styleObj">
+            <span>{{name}}</span>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        Vue.config.devtools = true
+
+        const vm = new Vue({
+            el: "#root",
+            data: {
+                name: "张三",
+                cs: "cs1",
+                csArr: ['cs1', 'cs2', 'cs3'],
+                classObj: {
+                    cs5: true,
+                    cs2: true,
+                    cs4: true,
+                },
+                styleObj: {
+                    fontSize: "40px"
+                }
+            },
+            methods: {
+
+                change() {
+                    var index = Math.floor(Math.random(0, 3) * 3)
+                    this.cs = this.csArr[index]
+                }
+            },
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>08vue</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        .demo{
+            width: auto;
+            height: auto;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div class="demo">
+            姓:<input v-model="fistName"> <br>
+            名:<input v-model="lastName"><br>
+            全名:<span>{{fullName}}</span> <br>
+        </div>
+        
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        Vue.config.devtools = true
+
+        const vm = new Vue({
+            el: "#root",
+            data: {
+                fistName: "張",
+                lastName: "三",
+                fullName:'張-三'
+            },
+          watch:{
+            fistName(newVaule){
+                setTimeout(()=>{
+                    console.log(this);//vue
+                    this.fullName = newVaule+"-"+this.lastName
+
+                },1000)
+            },
+            lastName(newVaule){
+                this.fullName = this.fistName+"-"+newVaule
+            }
+          }
+        })
+
+
+    </script>
+
+</body>
+
+</html>

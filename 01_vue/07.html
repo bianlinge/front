@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>07vue</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<style>
+    *{
+      margin-top: 20px;  
+    }
+    .demo1{
+        height: 50px;
+        background-color: aqua;
+    }
+    .div1{
+        height: 50px;
+        background-color: aqua;
+    }
+    .div2{
+        height: 20px;
+        background-color: royalblue;
+    }
+    .list{
+        width: 100px;
+        height: 100px;
+        overflow: auto;
+        background-color: rgb(100, 231, 13);
+    }
+</style>
+<body>
+    <div id="root">
+        <a href="http://www.baidu.com" @click.prevent="showInfo">点击我</a>
+
+        <div class="demo1" @click="showInfo" >
+            <button @click.stop="showInfo">点击</button>
+        </div>
+
+        <div>
+            <button @click.once="showInfo">点击once</button>
+        </div>
+      <div class="div1" @click.self="showMsg(1)">
+        div1
+        <div class="div2" @click="showMsg(2)">
+            div2
+        </div>
+      </div>
+
+      <div class="list" @scroll="demo">
+        <ul >
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+    
+      </div>
+   
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        Vue.config.devtools = true
+
+        new Vue({
+            el: '#root',
+            data: {
+
+            },
+            methods: {
+                showInfo(e) {
+                    console.log(e)
+                    // e.preventDefault()
+                    alert("同学你好");
+                },
+                showMsg(number) {
+                
+                    // e.preventDefault()
+                    alert(number+"你好");
+                },
+                demo() {
+                
+                    console.log("@")
+            }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

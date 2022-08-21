@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>08vue</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        .demo{
+            width: auto;
+            height: auto;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div class="demo">
+            姓:<input v-model="fistName"> <br>
+            名:<input v-model="lastName"><br>
+            全名: {{fullName}}<br>
+            全名method:{{fullName}} <br>
+        </div>
+        
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        Vue.config.devtools = true
+
+        const vm = new Vue({
+            el: "#root",
+            data: {
+                fistName: "張",
+                lastName: "三",
+            },
+            // methods:{
+            //     fullName(){
+            //         return this.fistName+"-"+this.lastName
+            //     }
+            // },
+        
+            computed: {
+              /*   fullName: {
+                    //什么时候调用 1.初次读取fullname 2.锁依赖的数据发生变化
+                    get() {
+                        console.log("get 被调用了")
+                        return this.fistName.slice(0, 3) + "-" + this.lastName
+                    },
+                    set(value){
+                        const arr = value.split('-')
+                        this.fistName = arr[0]
+                        this.lastName = arr[1]
+                    }
+                } */
+                // 简写fullName 属性 是考虑get 读取方法
+                fullName(){
+                    return this.fistName.slice(0, 3) + "-" + this.lastName
+                }
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>
